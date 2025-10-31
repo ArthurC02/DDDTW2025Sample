@@ -1,11 +1,11 @@
 import js from '@eslint/js'
-import tseslint from 'typescript-eslint'
+import tsParser from '@typescript-eslint/parser'
 import next from 'eslint-config-next'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import unusedImports from 'eslint-plugin-unused-imports'
-import tsParser from '@typescript-eslint/parser'
+import tseslint from 'typescript-eslint'
 
-export default [
+const config = [
   // Next.js recommended (Core Web Vitals)
   ...(typeof next === 'function' ? next() : Array.isArray(next) ? next : [next]),
   // TypeScript recommended rules
@@ -43,3 +43,5 @@ export default [
     },
   },
 ]
+
+export default config

@@ -1,7 +1,6 @@
 'use client'
 
 import * as React from 'react'
-
 import * as RechartsPrimitive from 'recharts'
 import type { LegendPayload } from 'recharts/types/component/DefaultLegendContent'
 import type { TooltipContentProps } from 'recharts/types/component/Tooltip'
@@ -346,9 +345,9 @@ function getPayloadConfigFromPayload(
 
 export {
   ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
   ChartLegend,
   ChartLegendContent,
   ChartStyle,
+  ChartTooltip,
+  ChartTooltipContent,
 }
