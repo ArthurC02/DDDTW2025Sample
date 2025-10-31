@@ -39,7 +39,7 @@ export function RundownDashboard({
   title = "志工 Rundown",
   subtitle = "請接入資料以開始顯示內容",
 }: RundownDashboardProps) {
-  const [currentTime, setCurrentTime] = useState(new Date())
+  const [currentTime, setCurrentTime] = useState(() => new Date())
 
   useEffect(() => {
     const timer = setInterval(() => {

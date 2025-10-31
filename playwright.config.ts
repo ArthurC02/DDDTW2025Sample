@@ -7,7 +7,7 @@ export default defineConfig({
   fullyParallel: true,
   reporter: [['list'], ['html', { open: 'never', outputFolder: 'playwright-report' }]],
   use: {
-    baseURL: 'http://localhost:3001',
+    baseURL: 'http://localhost:3000',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
@@ -21,8 +21,8 @@ export default defineConfig({
   ],
   // Prefer running against a production build to avoid Next.js dev server lock issues
   webServer: {
-    command: 'npm run build && npm run start -- -p 3001',
-    url: 'http://localhost:3001',
+    command: 'npm run build && npm run start',
+    url: 'http://localhost:3000',
     reuseExistingServer: !process.env.CI,
     timeout: 180 * 1000,
   },
