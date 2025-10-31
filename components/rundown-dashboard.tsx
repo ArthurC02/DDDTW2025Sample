@@ -1,7 +1,7 @@
 "use client"
 
 import { Clock, LayoutDashboard, Users } from "lucide-react"
-import { useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from "react"
 
 import { Badge } from "@/components/ui/badge"
 import { Card } from "@/components/ui/card"
@@ -48,14 +48,14 @@ export function RundownDashboard({
     return () => clearInterval(timer)
   }, [])
 
-  const formatTime = (date: Date) => {
+  const formatTime = useCallback((date: Date) => {
     return date.toLocaleTimeString("zh-TW", {
       hour: "2-digit",
       minute: "2-digit",
       second: "2-digit",
       hour12: false,
     })
-  }
+  }, [])
 
   return (
     <div className="min-h-screen bg-background p-4 md:p-6 lg:p-8">
@@ -112,7 +112,7 @@ export function RundownDashboard({
                 <div className="flex flex-col gap-3">
                   {team.tasks.map((task, index) => (
                     <Card
-                      key={index}
+                      key={`${team.name}-${task.time}-${index}`}
                       className={cn(
                         "p-4 transition-all duration-300",
                         task.status === "current" && "border-primary bg-primary/5 shadow-lg ring-2 ring-primary/20",
